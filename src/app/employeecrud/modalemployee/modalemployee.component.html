@@ -1,0 +1,47 @@
+<p-dialog
+        [header]="!employeService._employeeUpdate?'Edit Employee':'Create Employee'"
+        [(visible)]="employeService._emploeyeeCreated"
+        [modal]="true"
+        [breakpoints]="{ '960px': '75vw' }"
+        [style]="{ width: '30vw' }"
+        [draggable]="false"
+        [resizable]="false"
+      >
+        <form  [formGroup]="formEmployee">
+          <div class="form-group">
+            <label>Employee Name</label>
+            <input
+              formControlName="name"
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Enter name"
+            />
+          </div>
+          <div class="form-group">
+            <label>Address</label>
+            <input
+            formControlName="address"
+              type="text"
+              class="form-control"
+              id="address"
+              placeholder="Enter address"
+            />
+          </div>
+          <div class="form-group">
+            <label>Mobile</label>
+            <input
+            formControlName="mobile"
+              type="text"
+              class="form-control"
+              id="mobile"
+              placeholder="Enter mobile"
+            />
+          </div>
+        
+          <p-button [loading]="loading" type="button" class="btn btn-primary"  (click)="!loading?(employeService._employeeUpdate ? update():register()):null">Edit</p-button>
+        </form>
+      </p-dialog>
+        
+
+
